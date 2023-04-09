@@ -1,11 +1,9 @@
 package com.charbiosilva;
 
-import com.charbiosilva.desafio.dominio.Bootcamp;
-import com.charbiosilva.desafio.dominio.Curso;
-import com.charbiosilva.desafio.dominio.Devs;
-import com.charbiosilva.desafio.dominio.Mentoria;
+import com.charbiosilva.desafio.dominio.*;
 
 import java.time.LocalDate;
+import java.util.Iterator;
 
 public class Main {
     public static void main(String[] args) {
@@ -38,23 +36,40 @@ public class Main {
         Devs devCamila = new Devs();
         devCamila.setNome("Camila");
         devCamila.inscreverBootcamp(bootcamp);
-        System.out.println("Conteúdos Inscritos Camila: " + devCamila.getConteudosInscritos());
+        System.out.println("Conteúdos Inscritos: Camila " + devCamila.getConteudosInscritos());
+        System.out.println(" ");
+        System.out.println("--\tData de inscrição e data limite para o término do curso\t---");
+        for (Conteudo conteudo : devCamila.getConteudosInscritos()) {
+            System.out.println(conteudo.getTitulo() +
+                    " - Data Inicial: " + bootcamp.getDataInicial() +
+                    " - Data Término: " + bootcamp.getDataFinal());
+        }
         devCamila.progredir();
         System.out.println("-");
-        System.out.println("Conteúdos Concluídos Camila: " + devCamila.getConteudosConcluidos());
-        System.out.println("Conteúdos Inscritos Camila: " + devCamila.getConteudosInscritos());
+        System.out.println("Conteúdos Concluídos: Camila " + devCamila.getConteudosConcluidos());
+        System.out.println("Conteúdos Inscritos: Camila " + devCamila.getConteudosInscritos());
         System.out.println("XP: " + devCamila.calcularTotalXp());
 
+        System.out.println(" ");
         System.out.println("--------");
+        System.out.println(" ");
 
         Devs devJoao = new Devs();
         devJoao.setNome("João");
         devJoao.inscreverBootcamp(bootcamp);
-        System.out.println("Conteúdos Inscritos João: " + devJoao.getConteudosInscritos());
+        System.out.println("Conteúdos Inscritos: João " + devJoao.getConteudosInscritos());
+        System.out.println(" ");
+        System.out.println("--\tData de inscrição e data limite para o término do curso\t---");
+        for(Conteudo conteudo: devJoao.getConteudosInscritos()) {
+            System.out.println(conteudo.getTitulo() +
+                    " - Data Inicial: " + bootcamp.getDataInicial() +
+                    " - Data Final: " + bootcamp.getDataFinal());
+        }
         devJoao.progredir();
         System.out.println("-");
-        System.out.println("Conteúdos Concluídos João: " + devJoao.getConteudosConcluidos());
-        System.out.println("Conteúdos Inscritos João: " + devJoao.getConteudosInscritos());
+        System.out.println("Conteúdos Concluídos: João " + devJoao.getConteudosConcluidos());
+        System.out.println("Conteúdos Inscritos: João " + devJoao.getConteudosInscritos());
         System.out.println("XP: " + devJoao.calcularTotalXp());
+        System.out.println(" ");
     }
 }
